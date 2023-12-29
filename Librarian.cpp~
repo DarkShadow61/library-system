@@ -1,0 +1,19 @@
+// Librarian.cpp
+#include "Librarian.h"
+#include <iostream>
+
+Librarian::Librarian() : staffId(0), salary(0.0) {}
+
+void Librarian::inputDetails() {
+    std::cout << "Enter your name: ";
+    std::getline(std::cin, name);
+    std::cout << "Enter your address: ";
+    std::getline(std::cin, address);
+    std::cout << "Enter your email: ";
+    std::getline(std::cin, email);
+    std::cout << "Enter your staff ID: ";
+    std::cin >> staffId;
+    std::cout << "Enter your salary: ";
+    std::cin >> salary;
+    std::cin.ignore(); // To handle the newline character after reading a number
+}

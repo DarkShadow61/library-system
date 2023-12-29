@@ -1,0 +1,66 @@
+#include "Librarian.h"
+#include <iostream>
+#include <limits>
+
+int main() {
+    while (true) {
+        Librarian librarian;
+        librarian.inputDetails();
+
+        int choice = 0;
+        bool exit = false;
+
+        while (!exit) {
+            std::cout << "\nWelcome to the Library Management System" << std::endl;
+            std::cout << "1. Add Member" << std::endl;
+            std::cout << "2. Issue Book" << std::endl;
+            std::cout << "3. Return Book" << std::endl;
+            std::cout << "4. Record of Borrowing Books" << std::endl;
+            std::cout << "5. Exit" << std::endl;
+            std::cout << "Enter your choice: ";
+
+            std::cin >> choice;
+            if (std::cin.fail()) {
+                std::cin.clear(); // Clears the error flags.
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignores the rest of the line.
+                std::cout << "Invalid input, please try again.\n";
+                continue; // Skip the rest of the loop and prompt again.
+            }
+
+            switch (choice) {
+                case 1:
+                    // Add Member functionality
+                    std::cout << "Adding member...\n";
+                    break;
+                case 2:
+                    // Issue Book functionality
+                    std::cout << "Issuing book...\n";
+                    break;
+                case 3:
+                    // Return Book functionality
+                    std::cout << "Returning book...\n";
+                    break;
+                case 4:
+                    // Record of Borrowing Books functionality
+                    std::cout << "Showing record of borrowing books...\n";
+                    break;
+                case 5:
+                    std::cout << "Exiting the Library Management System.\n";
+                    exit = true;
+                    break;
+                default:
+                    std::cout << "Invalid choice, please try again.\n";
+                    break;
+            }
+        }
+
+        std::cout << "Would you like to restart the program? (yes/no): ";
+        std::string restart;
+        std::getline(std::cin, restart);
+        if (restart != "yes") {
+            break;
+        }
+    }
+
+    return 0;
+}
